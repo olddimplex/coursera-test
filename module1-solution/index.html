@@ -8,6 +8,7 @@
       .message { font-size: 1.3em; font-weight: bold; }
     </style>
     <script src="angular.min.js"></script>
+    <script src="app.js"></script>
   </head>
 <body ng-app="LunchCheck">
    <div class="container" ng-controller="LunchCheckController">
@@ -22,7 +23,7 @@
              <button class="btn btn-default" ng-click="checkIfTooMuch()">Check If Too Much</button>
          </div>
          <div class="form-group message">
-           {{advise}}
+           <span>{{advise}}</span>
          </div>
    </div>
 

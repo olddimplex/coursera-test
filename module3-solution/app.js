@@ -12,6 +12,7 @@
             templateUrl: 'found.html',
             scope: {
                 found: '<',
+                foundLength: '<',
                 onRemove: '&'
             }
         };
@@ -30,15 +31,13 @@
             }).then(function(result) {
                 var payload = result.data;
                 var foundItems = [];
-                var menu;
-                for(menu of Object.values(payload)) {
-                    foundItems = foundItems.concat((menu.menu_items || []).filter(function(menuItem) { 
-                        var descriptionMatches = menuItem && menuItem.description && menuItem.description.indexOf(searchTerm) >= 0;
-                        if(descriptionMatches) {
-                            menuItem.name = menuItem.name + ' (' + menu.category.name + ')';
-                        }
-                        return descriptionMatches
-                    }));
+                if(searchTerm.trim().length > 0) {
+                    var menu;
+                    for(menu of Object.values(payload)) {
+                        foundItems = foundItems.concat((menu.menu_items || []).filter(function(menuItem) { 
+                            return menuItem && menuItem.description && menuItem.description.indexOf(searchTerm) >= 0;
+                        }));
+                    }
                 }
                 return foundItems;
             }).catch(function (error) {
@@ -53,10 +52,12 @@
 
         narrowItDown.found = [];
         narrowItDown.searchTerm = '';
+        narrowItDown.foundLength = -1;
 
         narrowItDown.getMatchedMenuItems = function() {
             MenuSearchService.getMatchedMenuItems(narrowItDown.searchTerm).then(function(foundItems) {
                 narrowItDown.found = foundItems;
+                narrowItDown.foundLength = narrowItDown.found.length;
             });
         };
 

@@ -15,6 +15,9 @@ input[type="text"] {
 .found-items td {
   padding: 5px;
 }
+.found-items table, th, td {
+  border: 1px solid;
+}
 .loader {
   display: none;
   margin-left: 5px;

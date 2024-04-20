@@ -17,7 +17,7 @@
       <button class="btn btn-primary" ng-click="narrowItDown.getMatchedMenuItems();">Narrow It Down For Me!</button>
     </div>
     <div class="found-items">
-      <found-items found="narrowItDown.found" on-remove="narrowItDown.removeMenuItem(index)"></found-items>
+      <found-items found="narrowItDown.found" found-length="narrowItDown.foundLength" on-remove="narrowItDown.removeMenuItem(index)"></found-items>
     </div>
   </div>
   <script src="angular.min.js"></script>

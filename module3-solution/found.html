@@ -1,7 +1,9 @@
 <table>
+  <tr ng-if="foundLength === 0"><td>Nothing found</td></tr>
   <tr ng-repeat="item in found">
-    <td>{{ $index + 1 }}.</td>
+    <td>{{:: item.short_name }}</td>
     <td>{{:: item.name }}</td>
-    <td><button ng-click="onRemove({index: $index});">Remove Item</button></td>
+    <td>{{:: item.description }}</td>
+    <td><button ng-click="onRemove({index: $index});">Don't want this one!</button></td>
   </tr>
 </table>

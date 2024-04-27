@@ -1,0 +1,36 @@
+  fieldset {
+    margin: 24px;
+  }
+
+  legend {
+    color: inherit;
+  }
+
+  input {
+    font-size: 24px;
+    color: #61122f;
+    margin-bottom: 10px;
+  }
+
+  .input-readonly {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    font-size: 24px;
+    color: #61122f;
+  }
+  
+  .ng-touched.ng-valid {
+    border: 2px green solid;
+  }
+  
+  .ng-touched.ng-invalid {
+    border: 2px red solid;
+  }
+  
+  #info {
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,14 @@
+<div ng-if="reg.user" class="container">
+    <h3>Your registration</h3>
+    <signup-form user="reg.user" readonly="true"></signup-form>
+    <h3>Your favorite course</h3>
+    <br/>
+    <menu-item 
+        menu-item="reg.user.menuItem" 
+        category-short-name="reg.user.menuItem.meta.category"
+        >
+    </menu-item>
+</div>
+<div ng-hide="reg.user" class="container">
+    <span>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></span>
+</div>
